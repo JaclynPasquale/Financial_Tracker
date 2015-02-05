@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace Financial_Tracker
 {
@@ -23,6 +23,10 @@ namespace Financial_Tracker
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void Submit_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

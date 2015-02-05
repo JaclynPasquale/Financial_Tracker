@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Financial_Tracker", "Financial_Tracker\Financial_Tracker.csproj", "{21786C98-6512-4B61-81CB-0CE7456E380E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UiUnitTest", "UiUnitTest\UiUnitTest.csproj", "{2D9289B5-1387-445B-823C-9BCC16B33245}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{21786C98-6512-4B61-81CB-0CE7456E380E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{21786C98-6512-4B61-81CB-0CE7456E380E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{21786C98-6512-4B61-81CB-0CE7456E380E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D9289B5-1387-445B-823C-9BCC16B33245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D9289B5-1387-445B-823C-9BCC16B33245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D9289B5-1387-445B-823C-9BCC16B33245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D9289B5-1387-445B-823C-9BCC16B33245}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
