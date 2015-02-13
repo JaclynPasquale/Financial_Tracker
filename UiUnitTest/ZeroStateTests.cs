@@ -6,7 +6,7 @@ using TestStack.White.Factory;
 using TestStack.White.UIItems;
 using TestStack.White.UIItems.WindowItems;
 
-namespace UiUnitTest
+namespace TestFinacialTracker
 {
     [TestClass]
     public class UITests
@@ -41,6 +41,16 @@ namespace UiUnitTest
             Assert.IsTrue(submit_button.Enabled);
 
         }
+        [TestMethod]
+        public void TestZeroStateDefaultAddBasicInfo()
+        {
+            
+        }
+        //[TestMethod]
+        //public void TestZeroState()
+        //{
+            
+        //}
         [ClassCleanup]
         public static void TearDown()
         {

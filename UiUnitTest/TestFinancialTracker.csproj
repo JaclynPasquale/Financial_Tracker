@@ -6,7 +6,7 @@
     <ProjectGuid>{2D9289B5-1387-445B-823C-9BCC16B33245}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UiUnitTest</RootNamespace>
+    <RootNamespace>TestFinacialTracker</RootNamespace>
     <AssemblyName>UiUnitTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -38,7 +38,14 @@
     <Reference Include="Castle.Core">
       <HintPath>..\packages\Castle.Core.3.3.0\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="TestStack.BDDfy">
       <HintPath>..\packages\TestStack.BDDfy.4.1.0\lib\NET40\TestStack.BDDfy.dll</HintPath>
     </Reference>
@@ -59,11 +66,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UiUnitTest.cs" />
+    <Compile Include="AddingMoneyInfoTest.cs" />
+    <Compile Include="TestHelper.cs" />
+    <Compile Include="ZeroStateTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserStoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

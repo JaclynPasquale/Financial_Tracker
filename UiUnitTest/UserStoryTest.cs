@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace UiUnitTest
+namespace TestFinacialTracker
 {
     [TestClass]
     public class UserStoryTest
