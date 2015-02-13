@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Finacial_Tracker.Model.Finacial_Tracker;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,15 +10,32 @@ namespace Financial_Tracker.Repository
 {
     public class MoneyInfoRepository : IMoneyInfoRepository
     {
+        private MoneyInfoContext _dbContext;
+
+        public MoneyInfoRepository()
+        {
+            _dbContext = new MoneyInfoContext();
+            _dbContext.MoneyInfo.Load();
+        }
+        public MoneyInfoContext Context()
+        {
+            return _dbContext;
+        }
+        public DbSet<Model.MoneyInfo> GetDbSet()
+        {
+            return _dbContext.MoneyInfo;
+        }
+
 
         public int GetCount()
         {
-            throw new NotImplementedException();
+            return _dbContext.MoneyInfo.Count<Model.MoneyInfo>();
         }
 
         public void Add(Model.MoneyInfo E)
         {
-            throw new NotImplementedException();
+            _dbContext.MoneyInfo.Add(E);
+            _dbContext.SaveChanges();
         }
 
         public void Delete(Model.MoneyInfo E)
@@ -26,7 +45,9 @@ namespace Financial_Tracker.Repository
 
         public void Clear()
         {
-            throw new NotImplementedException();
+            var a = this.All();
+            _dbContext.MoneyInfo.RemoveRange(a);
+            _dbContext.SaveChanges();
         }
 
         public IEnumerable<Model.MoneyInfo> PastMoneyInfos()
@@ -36,7 +57,8 @@ namespace Financial_Tracker.Repository
 
         public IEnumerable<Model.MoneyInfo> All()
         {
-            throw new NotImplementedException();
+            var qu = from Event in _dbContext.MoneyInfo select Event;
+            return qu.ToList<Model.MoneyInfo>();
         }
 
         public Model.MoneyInfo GetById(int id)
@@ -47,6 +69,10 @@ namespace Financial_Tracker.Repository
         public IQueryable<Model.MoneyInfo> SearchFor(System.Linq.Expressions.Expression<Func<Model.MoneyInfo, bool>> predicate)
         {
             throw new NotImplementedException();
+        }
+        public void Dispose()
+        { 
+            _dbContext.Dispose();
         }
     }
 }

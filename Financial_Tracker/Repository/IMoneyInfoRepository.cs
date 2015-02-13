@@ -15,7 +15,6 @@ namespace Financial_Tracker.Repository
         void Delete(MoneyInfo E); //
         void Clear(); //
         IEnumerable<MoneyInfo> PastMoneyInfos(); //
-        
         IEnumerable<MoneyInfo> All(); //
         MoneyInfo GetById(int id); //
         
