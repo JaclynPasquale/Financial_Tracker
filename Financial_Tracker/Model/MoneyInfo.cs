@@ -7,9 +7,15 @@ using System.Threading.Tasks;
 namespace Financial_Tracker.Model
 {
     public class MoneyInfo
+
     {
-        public int Salary;
-        public int Expenses;
+        public MoneyInfo()
+        {
+
+        }
+        public int MoneyInfoId { get; set; }
+        public int Salary{get; set;}
+        public int Expenses{get; set;}
 
         public MoneyInfo(int Salary, int Expenses)
         {

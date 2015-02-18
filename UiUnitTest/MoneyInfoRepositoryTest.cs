@@ -10,7 +10,8 @@ namespace TestFinacialTracker
     [TestClass]
     public class MoneyInfoRepositoryTest
     {
-        private static MoneyInfoRepository repo;
+        private static MoneyInfoRepository repo = new MoneyInfoRepository();
+
 
         [TestMethod]
         public static void Setup(TestContext _context)
@@ -34,6 +35,7 @@ namespace TestFinacialTracker
         {
             Assert.AreEqual(0, repo.GetCount());
             repo.Add(new MoneyInfo(5000, 3500));
+
         }
         [TestMethod]
         public void TestAllMethod()
