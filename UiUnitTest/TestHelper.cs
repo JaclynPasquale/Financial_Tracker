@@ -63,7 +63,7 @@ namespace TestFinacialTracker
             throw new NotImplementedException();
         }
 
-        public void ThenIShouldNotSeeTheEventForm()
+        public void ThenIShouldNotSeeTheMoneyInfoForm()
         {
             throw new NotImplementedException();
         }
@@ -98,9 +98,16 @@ namespace TestFinacialTracker
             throw new NotImplementedException();
         }
 
-        public void GivenThereIsNoMoneyInfo()
+        public static void GivenThereIsNoMoneyInfo(params MoneyInfo[] moneyinfos)
         {
-            throw new NotImplementedException();
+            foreach (MoneyInfo money in moneyinfos)
+            {
+                // Add MoneyInfo to MoneyInfos here.
+                repo.Add(money);
+            }
+
+            //context.SaveChanges();
+            Assert.AreEqual(moneyinfos.Length, repo.GetCount());
         }
         public static void CleanThisUp()
         {

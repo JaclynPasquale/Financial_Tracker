@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestStack.BDDfy;
 using TestFinacialTracker;
+using Financial_Tracker.Model;
 
 namespace TestFinancialTracker
 {
@@ -31,7 +32,7 @@ namespace TestFinancialTracker
             WhenIFillInSalaryWith("1,500");
             WhenIFillInExpensesWith("1,000");
             AndIClick("Save");
-            ThenIShouldNotSeeTheEventForm();
+            ThenIShouldNotSeeTheMoneyInfoForm();
             AndIShouldSeeMoneyInfoFor("1,500", "1,000");
             AndTheButtonShouldBeEnabled("+");
         }
@@ -48,7 +49,7 @@ namespace TestFinancialTracker
             WhenIFillInSalaryWith("1,500");
             WhenIFillInExpensesWith("1,000");
             AndIClick("Save");
-            ThenIShouldNotSeeTheEventForm();
+            ThenIShouldNotSeeTheMoneyInfoForm();
             AndIShouldSeeMoneyInfoFor("1,500", "1,000");
             AndTheButtonShouldBeEnabled("+");
         }
@@ -63,12 +64,12 @@ namespace TestFinancialTracker
             ThenIShouldSeeTheMoneyInfoForm();
             WhenIFillInSalaryWith("1,500");
             AndIClick("Cancel");
-            ThenIShouldNotSeeTheEventForm();
+            ThenIShouldNotSeeTheMoneyInfoForm();
             AndIShouldSeeMoneyInfoFor("0", "0");
             AndTheButtonShouldNotBeEnabled("+");
             WhenIClick("Add Money Info");
             ThenIShouldSeeTheMoneyInfoForm();
-            AndTheMoneyInforShouldBeFilledInWithZero();
+            AndTheMoneyInfoShouldBeFilledInWithZero();
 
 
         }
