@@ -67,10 +67,11 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AddingMoneyInfoTest.cs" />
+    <Compile Include="MoneyInfoModelTest.cs" />
+    <Compile Include="MoneyInfoRepositoryTest.cs" />
     <Compile Include="TestHelper.cs" />
     <Compile Include="ZeroStateTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UserStoryTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -9,53 +9,32 @@ using TestStack.White.UIItems.WindowItems;
 namespace TestFinacialTracker
 {
     [TestClass]
-    public class UITests
+    public class ZeroStateTest : TestHelper
     {
-        private static TestContext test_context;
-        private static Window window;
-        private static Application application;
 
         [ClassInitialize]
-        public static void Setup(TestContext _context)
+        public static void SetUpTests(TestContext _context)
         {
-            test_context = _context;
-            var applicationDir = _context.DeploymentDirectory;
-            var applicationPath = Path.Combine(applicationDir, "..\\..\\..\\UiUnitTest\\bin\\Debug\\Financial_Tracker");
-            application = Application.Launch(applicationPath);
-            window = application.GetWindow("MainWindow", InitializeOption.NoCache);
-
+            TestHelper.SetupClass(_context);
         }
-        [TestMethod]
-        public void TestZeroState()
+
+        [TestInitialize]
+        public void SetUpTest()
         {
-            TextBox first_box = window.Get<TextBox>("salarybox");
-            TextBox second_box = window.Get<TextBox>("loansbox");
-            TextBox third_box = window.Get<TextBox>("debtsbox");
-            TextBox fourth_box = window.Get<TextBox>("utilitybox");
-            Button submit_button = window.Get<Button>("submit");
-
-            Assert.IsTrue(first_box.Enabled);
-            Assert.IsTrue(second_box.Enabled);
-            Assert.IsTrue(third_box.Enabled);
-            Assert.IsTrue(fourth_box.Enabled);
-            Assert.IsTrue(submit_button.Enabled);
-
+            TestHelper.TestPrep();
         }
-        [TestMethod]
-        public void TestZeroStateDefaultAddBasicInfo()
+        [TestCleanup]
+        public void CleanUp()
         {
-            
+            TestHelper.CleanThisUp();
         }
-        //[TestMethod]
-        //public void TestZeroState()
+       
+        
+        //[ClassCleanup]
+        //public static void TearDown()
         //{
-            
+        //    window.Close();
+        //    application.Close();
         //}
-        [ClassCleanup]
-        public static void TearDown()
-        {
-            window.Close();
-            application.Close();
-        }
     }
 }

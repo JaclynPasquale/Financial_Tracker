@@ -1,31 +1,45 @@
-﻿﻿using System;
+﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Financial_Tracker.Model;
 using TestStack.White.UIItems.WindowItems;
 using TestStack.White;
 using System.IO;
+using System.Reflection;
 using TestStack.White.Factory;
 using TestStack.White.UIItems.ListBoxItems;
+using TestStack.White.UIItems.Finders;
+using Financial_Tracker.Repository;
+using Financial_Tracker;
+using System.Windows.Automation;
+using TestStack.White.UIItems;
+using Finacial_Tracker.Model.Finacial_Tracker;
 
 
 namespace TestFinacialTracker
 {
     public class TestHelper
     {
-        private static TestContext test_context;
-        private static Window window;
-        private static Application application;
 
-        public static void Setup(TestContext _context)
+        private static TestContext test_context;
+        protected static Window window;
+        private static Application application;
+        private static MoneyInfoRepository repo = new MoneyInfoRepository();
+        private static MoneyInfoContext context;
+        private static String applicationPath;
+
+        public static void SetupClass(TestContext _context)
         {
-            test_context = _context;
             var applicationDir = _context.DeploymentDirectory;
-            var applicationPath = Path.Combine(applicationDir, "..\\..\\..\\TestFinancialTracker\\bin\\Debug\\Financial_Tracker");
+            applicationPath = Path.Combine(applicationDir, "..\\..\\..\\TestFinancialTracker\\bin\\Debug\\Financial_Tracker");
+        }
+        public static void TestPrep()
+        {
             application = Application.Launch(applicationPath);
             window = application.GetWindow("MainWindow", InitializeOption.NoCache);
+            context = repo.Context();
         }
 
-        public void AndTheMoneyInforShouldBeFilledInWithZero()
+        public void AndTheMoneyInfoShouldBeFilledInWithZero()
         {
             throw new NotImplementedException();
         }
@@ -87,6 +101,12 @@ namespace TestFinacialTracker
         public void GivenThereIsNoMoneyInfo()
         {
             throw new NotImplementedException();
+        }
+        public static void CleanThisUp()
+        {
+            window.Close();
+            application.Close();
+            repo.Clear();
         }
 
     }
