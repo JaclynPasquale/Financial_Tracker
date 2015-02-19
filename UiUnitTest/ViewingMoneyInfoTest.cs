@@ -16,8 +16,7 @@ namespace TestFinacialTracker
         public void SetupTests()
         {
             GivenThereIsNoMoneyInfo(
-                new MoneyInfo(500, 450),
-                new MoneyInfo(420, 425)
+              
                 );
             TestHelper.TestPrep();
 

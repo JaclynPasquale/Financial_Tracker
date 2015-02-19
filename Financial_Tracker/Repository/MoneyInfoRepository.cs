@@ -1,4 +1,4 @@
-﻿using Finacial_Tracker.Model.Finacial_Tracker;
+﻿using Financial_Tracker.Model;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -40,7 +40,8 @@ namespace Financial_Tracker.Repository
 
         public void Delete(Model.MoneyInfo E)
         {
-            throw new NotImplementedException();
+            _dbContext.MoneyInfo.Remove(E);
+            _dbContext.SaveChanges();
         }
 
         public void Clear()

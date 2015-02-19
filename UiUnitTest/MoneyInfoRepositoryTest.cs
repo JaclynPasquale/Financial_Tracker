@@ -10,21 +10,22 @@ namespace TestFinacialTracker
     [TestClass]
     public class MoneyInfoRepositoryTest
     {
-        private static MoneyInfoRepository repo = new MoneyInfoRepository();
+        private static MoneyInfoRepository repo;
 
-
-        [TestMethod]
+        [ClassInitialize]
         public static void Setup(TestContext _context)
         {
             repo = new MoneyInfoRepository();
             repo.Clear();
         }
-        [TestMethod]
+
+        [ClassCleanup]
         public static void CleanUp()
         {
             repo.Clear();
             repo.Dispose();
         }
+
         [TestMethod]
         public void ClearDatabase()
         {
@@ -47,6 +48,7 @@ namespace TestFinacialTracker
         [TestMethod]
         public void GetCount()
         {
+            repo.Clear();
             Assert.AreEqual(0, repo.GetCount());
             repo.Add(new MoneyInfo(2000, 1599));
             Assert.AreEqual(1, repo.GetCount());

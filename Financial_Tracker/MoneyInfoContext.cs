@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using Financial_Tracker.Model;
 
-namespace Finacial_Tracker.Model
-{
-    namespace Finacial_Tracker
+
+
+namespace Financial_Tracker
     {
-        public class MoneyInfoContext : DbContext
+     public class MoneyInfoContext : DbContext
         {
             public DbSet<MoneyInfo> MoneyInfo { get; set; }
         }
-    }
 }

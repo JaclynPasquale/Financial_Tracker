@@ -38,9 +38,8 @@ namespace Financial_Tracker
 
             string moneyout = Expenses.Text;
             int expenses = Int32.Parse(moneyout);
-            
-
-            repo.Add(new MoneyInfo(salary, expenses)); 
+            repo.Add(new MoneyInfo(salary, expenses));
+            Save.IsEnabled = false;
         }
     }
 }

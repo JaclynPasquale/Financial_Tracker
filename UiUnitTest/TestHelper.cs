@@ -10,9 +10,7 @@ using TestStack.White.UIItems.ListBoxItems;
 using TestStack.White.UIItems.Finders;
 using Financial_Tracker.Repository;
 using Financial_Tracker;
-using System.Windows.Automation;
 using TestStack.White.UIItems;
-using Finacial_Tracker.Model.Finacial_Tracker;
 
 
 namespace TestFinacialTracker
