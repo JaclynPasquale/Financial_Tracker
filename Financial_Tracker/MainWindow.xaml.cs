@@ -30,6 +30,8 @@ namespace Financial_Tracker
         public MainWindow()
         {
             InitializeComponent();
+            MoneyInfoList.DataContext = repo.Context().MoneyInfo.Local;
+
         }
         public void Save_Click(object sender, RoutedEventArgs e)
         {
@@ -40,6 +42,11 @@ namespace Financial_Tracker
             int expenses = Int32.Parse(moneyout);
             repo.Add(new MoneyInfo(salary, expenses));
             Save.IsEnabled = false;
+            Salary.Visibility = Visibility.Hidden;
+            Expenses.Visibility = Visibility.Hidden;
+            //SalaryDisplay.Visibility = Visibility.Visible;
+            //ExpensesDisplay.Visibility = Visibility.Visible;
+
         }
     }
 }
