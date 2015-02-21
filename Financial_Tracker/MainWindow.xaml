@@ -21,7 +21,7 @@
 
         
         <StackPanel Grid.Column="3" Grid.Row="0" Background="Peru">
-            <Button Background="IndianRed" Width="20" Height="20" Content="+" Margin="0,13,0,0" Grid.Column="3" ></Button>
+            <Button Background="IndianRed" Width="20" Height="20" Content="+" Margin="0,13,0,0" Grid.Column="3" Click="AddGoal_Click" ></Button>
         </StackPanel>
 
         <Border Background="SeaGreen" Grid.ColumnSpan="2" Grid.Row="0"></Border>
@@ -48,7 +48,7 @@
         <Border Background="LightGray" Grid.ColumnSpan="2" Grid.Row="1"></Border >
         <StackPanel Grid.Column="0" Grid.Row="1">
             <Label Margin="0 10 0 10" Grid.Column="0">Salary</Label>
-            <Label Grid.Column="0" >Expenses</Label>
+            <Label Grid.Column="0">Expenses</Label>
         </StackPanel>
         
         <StackPanel Grid.Column="2" Grid.Row="1">

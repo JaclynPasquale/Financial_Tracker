@@ -60,8 +60,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GoalsModal.xaml.cs">
+      <DependentUpon>GoalsModal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Goals.cs" />
     <Compile Include="Repository\IMoneyInfoRepository.cs" />
     <Compile Include="Repository\MoneyInfoRepository.cs" />
+    <Page Include="GoalsModal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

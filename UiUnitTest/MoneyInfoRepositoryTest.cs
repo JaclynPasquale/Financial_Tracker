@@ -41,6 +41,7 @@ namespace TestFinacialTracker
         [TestMethod]
         public void TestAllMethod()
         {
+            repo.Clear();
             repo.Add(new MoneyInfo(4000, 2000));
             repo.Add(new MoneyInfo(100, 100));
             Assert.AreEqual(2, repo.GetCount());

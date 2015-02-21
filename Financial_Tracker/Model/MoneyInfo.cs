@@ -22,6 +22,7 @@ namespace Financial_Tracker.Model
             this.Salary = Salary;
             this.Expenses = Expenses;
         }
+        
     }
     
 }

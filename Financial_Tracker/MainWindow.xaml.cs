@@ -48,5 +48,11 @@ namespace Financial_Tracker
             //ExpensesDisplay.Visibility = Visibility.Visible;
 
         }
+
+        private void AddGoal_Click(object sender, RoutedEventArgs e)
+        {
+            GoalsModal goals = new GoalsModal();
+            goals.Show();
+        }
     }
 }
