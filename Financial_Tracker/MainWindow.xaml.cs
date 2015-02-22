@@ -26,11 +26,14 @@ namespace Financial_Tracker
     public partial class MainWindow : Window
     {
         public static MoneyInfoRepository repo = new MoneyInfoRepository();
+        public static GoalsRepository goalsrepo = new GoalsRepository();
+        
 
         public MainWindow()
         {
             InitializeComponent();
             MoneyInfoList.DataContext = repo.Context().MoneyInfo.Local;
+
 
         }
         public void Save_Click(object sender, RoutedEventArgs e)
