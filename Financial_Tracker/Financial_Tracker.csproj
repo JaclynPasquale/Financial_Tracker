@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="Model\Goals.cs" />
     <Compile Include="Repository\GoalsRepository.cs" />
+    <Compile Include="Repository\IGoalsRepository.cs" />
     <Compile Include="Repository\IMoneyInfoRepository.cs" />
     <Compile Include="Repository\MoneyInfoRepository.cs" />
     <Page Include="GoalsModal.xaml">

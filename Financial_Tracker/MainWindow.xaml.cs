@@ -54,7 +54,7 @@ namespace Financial_Tracker
 
         private void AddGoal_Click(object sender, RoutedEventArgs e)
         {
-            GoalsModal goals = new GoalsModal();
+            GoalsModal goals = new GoalsModal(goalsrepo);
             goals.Show();
         }
     }

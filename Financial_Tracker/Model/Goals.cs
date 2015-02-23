@@ -15,15 +15,15 @@ namespace Financial_Tracker.Model
         public string GoalTitle { get; set; }
         public string GoalType { get; set; }
         public decimal GoalCost { get; set; }
-        //public DateTime GoalTime { get; set; }
+        public DateTime? GoalDate { get; set; }
         public int GoalsId { get; set; }
 
-        public Goals(string goalTitle, string goalType, decimal goalCost)
+        public Goals(string goalTitle, string goalType, decimal goalCost, DateTime? goalDate)
         {
             this.GoalTitle = goalTitle;
             this.GoalType = goalType;
             this.GoalCost = goalCost;
-            //this.GoalTime = goalTime;
+            this.GoalDate = goalDate;
         }
         
     }

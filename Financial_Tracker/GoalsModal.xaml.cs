@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Financial_Tracker.Model;
+using Financial_Tracker.Repository;
+using Financial_Tracker;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +22,31 @@ namespace Financial_Tracker
     /// </summary>
     public partial class GoalsModal : Window
     {
-        public GoalsModal()
+        public GoalsRepository goalsrepo;
+        
+        public GoalsModal(GoalsRepository goalsrepo)
         {
+            this.goalsrepo = goalsrepo;
             InitializeComponent();
+            GoalsList.DataContext = goalsrepo.Context().goals.Local;
+        }
+     
+
+        private void AddGoalsDetail_Click(object sender, RoutedEventArgs e)
+        {
+
+            //goalTypes = goalType.SelectedValue.ToString();
+
+            string goalTypes = ((ComboBoxItem)goalType.SelectedItem).Content.ToString();
+            string cost = goalCost.Text;
+            decimal GoalCost = decimal.Parse(cost);
+
+            //goalDate.SelectedDate.GetValueOrDefault();
+
+            
+            goalsrepo.Add(new Goals(goalTitle.Text, goalTypes, GoalCost, goalDate.SelectedDate));
+            AddGoalsDetail.IsEnabled = false;
+
         }
     }
 }
