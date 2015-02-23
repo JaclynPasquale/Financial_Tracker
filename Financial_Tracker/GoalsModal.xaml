@@ -3,6 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="GoalsModal" Height="300" Width="300">
     <Grid>
+        <StackPanel Orientation="Vertical">
+            <Label Width="200">Goal Title</Label>
+            <TextBox Width="200" Margin="0 0 0 10"></TextBox>
+            <Label Width="200">Type of Goal</Label>
+            <ComboBox Margin="0 0 0 10" Width="200">
+                <ComboBoxItem>Car Downpayment</ComboBoxItem>
+                <ComboBoxItem>Vacation</ComboBoxItem>
+                <ComboBoxItem>Rent</ComboBoxItem>
+                <ComboBoxItem>House Downpayment</ComboBoxItem>
+                <ComboBoxItem>Other Purchase</ComboBoxItem>
+            </ComboBox>
+            <Label Width="200">Cost of Goal</Label>
+            <TextBox Width="200" Margin="0 0 0 10"></TextBox>
+            <Label Width="200">Deadline for Goal</Label>
+            <DatePicker Width="200" Margin="0 0 0 10"></DatePicker>
+            <Button Width="150" Margin="0 10" Background="Honeydew">Add Saving Goal</Button>
+        </StackPanel>
         
     </Grid>
 </Window>
