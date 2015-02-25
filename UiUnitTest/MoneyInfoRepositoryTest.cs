@@ -32,11 +32,11 @@ namespace TestFinacialTracker
             repo.Clear();
         }
         [TestMethod]
-        public void TestAddToDatabase()
+        public void TestCreateToDatabase()
         {
             Assert.AreEqual(0, repo.GetCount());
-            repo.Add(new MoneyInfo(5000, 3500));
-            repo.Add(new Goals("thing", "things", (decimal)3.00, new DateTime(2014, 3, 10, 10, 10, 10)));
+            repo.Create(new MoneyInfo(5000, 3500));
+            //repo.Create(new Goals("thing", "things", (decimal)3.00, new DateTime(2014, 3, 10, 10, 10, 10))); 
             //DateTime datetime = new DateTime(2014, 3, 10, 10, 10, 10);
 
         }
@@ -44,23 +44,22 @@ namespace TestFinacialTracker
         public void TestAllMethod()
         {
             repo.Clear();
-            repo.Add(new MoneyInfo(4000, 2000));
-            repo.Add(new MoneyInfo(100, 100));
-            Assert.AreEqual(2, repo.GetCount());
+            repo.Create(new MoneyInfo(4000, 2000));
+            Assert.AreEqual(1, repo.GetCount());
         }
         [TestMethod]
         public void GetCount()
         {
             repo.Clear();
             Assert.AreEqual(0, repo.GetCount());
-            repo.Add(new MoneyInfo(2000, 1599));
+            repo.Create(new MoneyInfo(2000, 1599));
             Assert.AreEqual(1, repo.GetCount());
         }
 
         [TestMethod]
         public void TestClear()
         {
-            repo.Add(new MoneyInfo(200, 199));
+            repo.Create(new MoneyInfo(200, 199));
             repo.Clear();
             Assert.AreEqual(0, repo.GetCount());
         }
@@ -70,8 +69,8 @@ namespace TestFinacialTracker
         {
             MoneyInfo e = new MoneyInfo(500, 499);
             repo.Clear();
-            repo.Add(e);
-            repo.Add(e);
+            repo.Create(e);
+            repo.Create(e);
         }
         
     }

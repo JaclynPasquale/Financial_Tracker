@@ -101,7 +101,7 @@ namespace TestFinacialTracker
             foreach (MoneyInfo money in moneyinfos)
             {
                 // Add MoneyInfo to MoneyInfos here.
-                repo.Add(money);
+                repo.Create(money);
             }
 
             //context.SaveChanges();

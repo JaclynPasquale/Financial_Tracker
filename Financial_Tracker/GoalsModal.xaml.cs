@@ -43,6 +43,7 @@ namespace Financial_Tracker
             AddGoalsDetail.IsEnabled = false;
             this.Close();
             
+            
 
         }
     }

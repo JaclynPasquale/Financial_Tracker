@@ -17,8 +17,8 @@ namespace Financial_Tracker.Repository
         {
             _dbContext = new MoneyInfoContext();
             _dbContext.MoneyInfo.Load();
-            //_dbContext = new MoneyInfoContext();
-            //_dbContext.Goals.Load();
+            
+            _dbContext.Goals.Load();
         }
         public MoneyInfoContext Context()
         {
@@ -46,17 +46,18 @@ namespace Financial_Tracker.Repository
 
         public void Create(Model.MoneyInfo E)
         {
-            _dbContext.MoneyInfo.Create(E);
+            _dbContext.MoneyInfo.Add(E);
             _dbContext.SaveChanges();
         }
 
         public Model.MoneyInfo GetorCreate()
         {
-            Model.MoneyInfo moneyinfo = _dbContext.MoneyInfo.Get();
+            Model.MoneyInfo moneyinfo = Get();
             
             if (moneyinfo == null)
             {
-                moneyinfo = Create(new Model.MoneyInfo(0, 0)); 
+                moneyinfo = new Model.MoneyInfo(10, 10);
+                Create(moneyinfo);
             }
             return moneyinfo;
             

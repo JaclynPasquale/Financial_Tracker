@@ -26,12 +26,12 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Width="50" Height="20" Text="{Binding GoalTitle, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
-                                <TextBlock Width="50" Height="20"  Text="{Binding GoalCost, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
-                                <TextBlock Width="50" Height="20"  Text="{Binding GoalType, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
-                                <TextBlock Width="50" Height="20"  Text="{Binding GoalDate, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBlock Width="50" Height="20" Text="{Binding goalTitle, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBlock Width="50" Height="20"  Text="{Binding goalCost, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBlock Width="50" Height="20"  Text="{Binding goalType, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                                <TextBlock Width="50" Height="20"  Text="{Binding goalDate, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
                             </StackPanel>
-                        </DataTemplate>
+                        </DataTemplate> 
                     </ListBox.ItemTemplate>
                 </ListBox>
             </StackPanel>

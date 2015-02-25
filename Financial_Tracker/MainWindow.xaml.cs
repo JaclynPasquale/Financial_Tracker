@@ -18,6 +18,7 @@ using Financial_Tracker.Model;
 using Financial_Tracker.Repository;
 using Financial_Tracker;
 
+
 namespace Financial_Tracker
 {
     /// <summary>
@@ -34,10 +35,10 @@ namespace Financial_Tracker
             InitializeComponent();
             MoneyInfoList.DataContext = repo.Context().MoneyInfo.Local;
             GoalsList.DataContext = repo.Context().Goals.Local;
-            if (repo.GetCount() > 1)
-            {
+            //if (repo.GetCount() > 1)
+            //{
                 
-            }
+            //}
         }
 
         public void Save_Click(object sender, RoutedEventArgs e)
@@ -47,13 +48,13 @@ namespace Financial_Tracker
 
             string moneyout = Expenses.Text;
             int expenses = Int32.Parse(moneyout);
-            repo.Add(new MoneyInfo(salary, expenses));
+            repo.Create(new MoneyInfo(salary, expenses));
             Save.IsEnabled = false;
             Salary.Visibility = Visibility.Hidden;
             Expenses.Visibility = Visibility.Hidden;
-            SalaryDisplay.Visibility = Visibility.Visible;
-            ExpensesDisplay.Visibility = Visibility.Visible;
-
+            //SalaryDisplay.Visibility = Visibility.Visible;
+            //ExpensesDisplay.Visibility = Visibility.Visible;
+             
         }
 
         private void AddGoal_Click(object sender, RoutedEventArgs e)
@@ -62,5 +63,9 @@ namespace Financial_Tracker
             goals.Show();
             
         }
+        //GoalsLabels.Visibility = Visibility.Visible; 
+
+
+
     }
 }
