@@ -36,6 +36,8 @@ namespace TestFinacialTracker
         {
             Assert.AreEqual(0, repo.GetCount());
             repo.Add(new MoneyInfo(5000, 3500));
+            repo.Add(new Goals("thing", "things", (decimal)3.00, new DateTime(2014, 3, 10, 10, 10, 10)));
+            //DateTime datetime = new DateTime(2014, 3, 10, 10, 10, 10);
 
         }
         [TestMethod]

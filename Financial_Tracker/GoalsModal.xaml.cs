@@ -22,30 +22,27 @@ namespace Financial_Tracker
     /// </summary>
     public partial class GoalsModal : Window
     {
-        public GoalsRepository goalsrepo;
+        public MoneyInfoRepository repo;
         
-        public GoalsModal(GoalsRepository goalsrepo)
+        public GoalsModal(MoneyInfoRepository repo)
         {
-            this.goalsrepo = goalsrepo;
+            this.repo = repo;
             InitializeComponent();
-            GoalsList.DataContext = goalsrepo.Context().goals.Local;
+            GoalsList.DataContext = repo.Context().Goals.Local;
         }
      
 
         private void AddGoalsDetail_Click(object sender, RoutedEventArgs e)
         {
 
-            //goalTypes = goalType.SelectedValue.ToString();
-
             string goalTypes = ((ComboBoxItem)goalType.SelectedItem).Content.ToString();
             string cost = goalCost.Text;
             decimal GoalCost = decimal.Parse(cost);
 
-            //goalDate.SelectedDate.GetValueOrDefault();
-
-            
-            goalsrepo.Add(new Goals(goalTitle.Text, goalTypes, GoalCost, goalDate.SelectedDate));
+            repo.Add(new Goals(goalTitle.Text, goalTypes, GoalCost, goalDate.SelectedDate));
             AddGoalsDetail.IsEnabled = false;
+            this.Close();
+            
 
         }
     }

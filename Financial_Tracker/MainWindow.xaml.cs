@@ -26,16 +26,20 @@ namespace Financial_Tracker
     public partial class MainWindow : Window
     {
         public static MoneyInfoRepository repo = new MoneyInfoRepository();
-        public static GoalsRepository goalsrepo = new GoalsRepository();
+        //public static MoneyInfoRepository goalsrepo = new MoneyInfoRepository();
         
 
         public MainWindow()
         {
             InitializeComponent();
             MoneyInfoList.DataContext = repo.Context().MoneyInfo.Local;
-
-
+            GoalsList.DataContext = repo.Context().Goals.Local;
+            if (repo.GetCount() > 1)
+            {
+                
+            }
         }
+
         public void Save_Click(object sender, RoutedEventArgs e)
         {
             string moneyin = Salary.Text;
@@ -47,15 +51,16 @@ namespace Financial_Tracker
             Save.IsEnabled = false;
             Salary.Visibility = Visibility.Hidden;
             Expenses.Visibility = Visibility.Hidden;
-            //SalaryDisplay.Visibility = Visibility.Visible;
-            //ExpensesDisplay.Visibility = Visibility.Visible;
+            SalaryDisplay.Visibility = Visibility.Visible;
+            ExpensesDisplay.Visibility = Visibility.Visible;
 
         }
 
         private void AddGoal_Click(object sender, RoutedEventArgs e)
         {
-            GoalsModal goals = new GoalsModal(goalsrepo);
+            GoalsModal goals = new GoalsModal(repo);
             goals.Show();
+            
         }
     }
 }
