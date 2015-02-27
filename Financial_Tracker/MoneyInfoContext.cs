@@ -10,7 +10,11 @@ using Financial_Tracker.Model;
 namespace Financial_Tracker
 {
      public class MoneyInfoContext : DbContext
-     {
+    {
+        public MoneyInfoContext(string connection = "MoneyInfoContext") : base(connection)
+        {
+
+        }
         public DbSet<MoneyInfo> MoneyInfo { get; set; }
         public DbSet<Goals> Goals { get; set; }
      }

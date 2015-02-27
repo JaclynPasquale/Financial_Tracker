@@ -13,9 +13,11 @@ namespace Financial_Tracker.Repository
     {
         private MoneyInfoContext _dbContext;
 
-        public MoneyInfoRepository()
+        public MoneyInfoRepository(string connection = "MoneyInfoContext")
+
+        //public MoneyInfoRepository()
         {
-            _dbContext = new MoneyInfoContext();
+            _dbContext = new MoneyInfoContext(connection);
             _dbContext.MoneyInfo.Load();
             
             _dbContext.Goals.Load();
