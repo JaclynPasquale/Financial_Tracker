@@ -36,8 +36,7 @@ namespace TestFinacialTracker
         {
             Assert.AreEqual(0, repo.GetCount());
             repo.Create(new MoneyInfo(5000, 3500));
-            //repo.Create(new Goals("thing", "things", (decimal)3.00, new DateTime(2014, 3, 10, 10, 10, 10))); 
-            //DateTime datetime = new DateTime(2014, 3, 10, 10, 10, 10);
+           
 
         }
         [TestMethod]
@@ -65,7 +64,7 @@ namespace TestFinacialTracker
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void MoneyInfoIsUnique()
+        public void OnlyOneMoneyInfo()
         {
             MoneyInfo e = new MoneyInfo(500, 499);
             repo.Clear();

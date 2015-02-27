@@ -12,8 +12,8 @@ namespace Financial_Tracker.Repository
     interface IMoneyInfoRepository
     {
         int GetCount(); //
-        MoneyInfo Get();
-        MoneyInfo GetorCreate(); //
+        MoneyInfo GetMoney();
+        MoneyInfo GetorCreate(MoneyInfo E); //
         void Create(MoneyInfo E); //
         void Clear(); //
        //IEnumerable<MoneyInfo> All(); //
@@ -21,7 +21,7 @@ namespace Financial_Tracker.Repository
 
         int GetGoalsCount(); //
         void ClearGoals(); //
-        IEnumerable<Goals> PastGoals(); //
+        //IEnumerable<Goals> PastGoals(); //
         Goals GetGoalsById(int id); //
 
         IQueryable<Goals> SearchFor(Expression<Func<Goals, bool>> predicate);

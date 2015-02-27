@@ -33,13 +33,17 @@ namespace Financial_Tracker
         public MainWindow()
         {
             InitializeComponent();
-            MoneyInfoList.DataContext = repo.Context().MoneyInfo.Local;
+            salarydisplay.DataContext = repo.Context().MoneyInfo.Local;
+            expensesdisplay.DataContext = repo.Context().MoneyInfo.Local;
             GoalsList.DataContext = repo.Context().Goals.Local;
+            Difference.Text = repo.Difference().ToString();
+            
             //if (repo.GetCount() > 1)
             //{
                 
             //}
         }
+        
 
         public void Save_Click(object sender, RoutedEventArgs e)
         {
@@ -48,13 +52,18 @@ namespace Financial_Tracker
 
             string moneyout = Expenses.Text;
             int expenses = Int32.Parse(moneyout);
-            repo.Create(new MoneyInfo(salary, expenses));
-            Save.IsEnabled = false;
-            Salary.Visibility = Visibility.Hidden;
-            Expenses.Visibility = Visibility.Hidden;
-            //SalaryDisplay.Visibility = Visibility.Visible;
-            //ExpensesDisplay.Visibility = Visibility.Visible;
-             
+            MoneyInfo moneyinfo = new MoneyInfo(salary, expenses);
+            if (repo.GetCount() == 0)
+            {
+                repo.Create(moneyinfo);
+            }
+            else
+            {
+                repo.GetMoney();
+                repo.UpdateMoney(moneyinfo);
+            }
+            salarydisplay.DataContext = repo.Context().MoneyInfo.Local;
+            expensesdisplay.DataContext = repo.Context().MoneyInfo.Local; 
         }
 
         private void AddGoal_Click(object sender, RoutedEventArgs e)
@@ -62,6 +71,13 @@ namespace Financial_Tracker
             GoalsModal goals = new GoalsModal(repo);
             goals.Show();
             
+        }
+
+
+
+        private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            object Sender = sender as TextBlock;
         }
         //GoalsLabels.Visibility = Visibility.Visible; 
 

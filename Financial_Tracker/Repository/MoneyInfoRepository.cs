@@ -10,12 +10,11 @@ using System.Threading.Tasks;
 namespace Financial_Tracker.Repository
 {
     public class MoneyInfoRepository : IMoneyInfoRepository
-    {
+    { 
         private MoneyInfoContext _dbContext;
 
         public MoneyInfoRepository()
 
-        //public MoneyInfoRepository()
         {
             _dbContext = new MoneyInfoContext();
             _dbContext.MoneyInfo.Load();
@@ -30,17 +29,17 @@ namespace Financial_Tracker.Repository
         {
             return _dbContext.MoneyInfo;
         }
-
-
+ 
         public int GetCount()
         {
             return _dbContext.MoneyInfo.Count<Model.MoneyInfo>();
         }
 
-
-
-        public Model.MoneyInfo Get()
+        public Model.MoneyInfo GetMoney()
         {
+            MoneyInfo thing = new MoneyInfo(50, 10);
+            _dbContext.MoneyInfo.Add(thing);
+            _dbContext.SaveChanges();
            var query = from MoneyInfo in _dbContext.MoneyInfo
                            select MoneyInfo;
            return query.First<Model.MoneyInfo>();    
@@ -48,28 +47,32 @@ namespace Financial_Tracker.Repository
 
         public void Create(Model.MoneyInfo E)
         {
+            
             _dbContext.MoneyInfo.Add(E);
             _dbContext.SaveChanges();
         }
 
-        public Model.MoneyInfo GetorCreate()
+        public Model.MoneyInfo GetorCreate(Model.MoneyInfo E)
         {
-            Model.MoneyInfo moneyinfo = Get();
+            Model.MoneyInfo moneyinfo = GetMoney();
             
             if (moneyinfo == null)
             {
-                moneyinfo = new Model.MoneyInfo(10, 10);
-                Create(moneyinfo);
+               
+                Create(E);
             }
             return moneyinfo;
             
         }
 
-        //public void Delete(Model.MoneyInfo E)
-        //{
-        //    _dbContext.MoneyInfo.Remove(E);
-        //    _dbContext.SaveChanges();
-        //}
+        public int Difference()
+        {
+            MoneyInfo moneyinfo = GetMoney();
+
+           return moneyinfo.Salary - moneyinfo.Expenses;
+        }
+
+        
 
         public void Clear()
         {
@@ -78,11 +81,13 @@ namespace Financial_Tracker.Repository
             _dbContext.SaveChanges();
             
         }
+        public void UpdateMoney(Model.MoneyInfo E)
+        {
+            Model.MoneyInfo moneyinfo = GetMoney();
+            Clear();
+            Create(E);
+        }
 
-        //public IEnumerable<Model.MoneyInfo> PastMoneyInfos()
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         public IEnumerable<Model.MoneyInfo> All()
         {
@@ -90,22 +95,11 @@ namespace Financial_Tracker.Repository
             return qu.ToList<Model.MoneyInfo>();
         }
 
-        //public Model.MoneyInfo GetById(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public IQueryable<Model.MoneyInfo> SearchFor(System.Linq.Expressions.Expression<Func<Model.MoneyInfo, bool>> predicate)
-        //{
-        //    throw new NotImplementedException();
-        //}
         public void Dispose()
         { 
             _dbContext.Dispose();
         }
   
-       
-
      
         public DbSet<Model.Goals> GetGoalsDbSet()
         {
@@ -128,6 +122,13 @@ namespace Financial_Tracker.Repository
             _dbContext.SaveChanges();
         }
 
+        //public int DaysFromGoal()
+        //{  
+        //    var query = from Goals in _dbContext.Goals select Goals.GoalDate;
+        //   // return ;
+
+        //}
+
         public void ClearGoals()
         {
             var b = this.AllGoals();
@@ -135,10 +136,7 @@ namespace Financial_Tracker.Repository
             _dbContext.SaveChanges();
         }
 
-        public IEnumerable<Model.Goals> PastGoals()
-        {
-            throw new NotImplementedException();
-        }
+       
 
         public IEnumerable<Model.Goals> AllGoals()
         {
@@ -154,7 +152,10 @@ namespace Financial_Tracker.Repository
         public IQueryable<Model.Goals> SearchFor(System.Linq.Expressions.Expression<Func<Model.Goals, bool>> predicate)
         {
             throw new NotImplementedException();
-        }
+        } 
+
+
+         
 
        
 
