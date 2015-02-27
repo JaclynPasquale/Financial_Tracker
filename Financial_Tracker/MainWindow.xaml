@@ -11,7 +11,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="90*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="40*"/>
         </Grid.RowDefinitions>
 
 
@@ -31,7 +32,7 @@
         </StackPanel>
 
 
-        <StackPanel Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2">
+        <StackPanel Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="0 30 0 0">
             <ListBox Name="GoalsList" ItemsSource="{Binding NotifyOnSourceUpdated=True}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
@@ -60,17 +61,18 @@
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">
                             <Label>Monthly Salary:</Label>
-                            <TextBlock Width="50" Height="20" Text="{Binding Salary, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Width="40" Height="20" Text="{Binding Salary, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label>Monthly Expenses:</Label>
-                            <TextBlock Width="50" Height="20"  Text="{Binding Expenses, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Width="40" Height="20"  Text="{Binding Expenses, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label>Money Unallocated:</Label>
+                            <TextBlock Width="40" Height="20" Text="{Binding Unallocated, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </StackPanel>
 
-        <Border Background="LightGray" Grid.ColumnSpan="2" Grid.Row="1"></Border >
+        <Border Background="LightGray" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2"></Border >
         <StackPanel Grid.Column="0" Grid.Row="1">
             <Label Margin="0 10 0 9" Grid.Column="0">Monthly Salary</Label>
             <Label  Grid.Column="0">Monthly Expenses</Label>

@@ -15,7 +15,7 @@ namespace TestFinacialTracker
         [ClassInitialize]
         public static void Setup(TestContext _context)
         {
-            repo = new MoneyInfoRepository("Name=TestDb");
+            repo = new MoneyInfoRepository();
             repo.Clear();
         }
 
