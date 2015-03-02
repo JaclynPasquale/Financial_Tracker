@@ -35,12 +35,7 @@ namespace Financial_Tracker
             //expensesdisplay.DataContext = repo.Context().MoneyInfo.Local;
             GoalsList.DataContext = repo.Context().Goals.Local;
             MoneyInfoList.DataContext = repo.Context().MoneyInfo.Local;
-            //Difference.Text = repo.Difference().ToString();
             
-            //if (repo.GetCount() > 1)
-            //{
-                
-            //}
         }
         
 
@@ -51,18 +46,10 @@ namespace Financial_Tracker
 
             string moneyout = Expenses.Text;
             int expenses = Int32.Parse(moneyout);
-            MoneyInfo moneyinfo = new MoneyInfo(salary, expenses);
-            //repo.Create(moneyinfo);
-            if (repo.GetCount() == 0)
-            {
-                repo.Create(moneyinfo);
-            }
-            else
-            {
-                repo.GetMoney();
-                repo.UpdateMoney(moneyinfo);
-            }
-            
+            MoneyInfo moneyinfo = repo.GetorCreate();
+            moneyinfo.Expenses = expenses;
+            moneyinfo.Salary = salary;
+            repo.Save();
             
         }
 

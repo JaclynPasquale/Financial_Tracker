@@ -13,9 +13,10 @@ namespace Financial_Tracker.Repository
     {
         int GetCount(); //
         MoneyInfo GetMoney();
-        MoneyInfo GetorCreate(MoneyInfo E); //
+        MoneyInfo GetorCreate(); //
         void Create(MoneyInfo E); //
-        void Clear(); //
+        void Clear();
+        void Save();//
        //IEnumerable<MoneyInfo> All(); //
         
 

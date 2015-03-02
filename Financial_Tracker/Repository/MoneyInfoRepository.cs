@@ -43,20 +43,20 @@ namespace Financial_Tracker.Repository
         }
 
         public void Create(Model.MoneyInfo E)
-        {
-            
+        {  
             _dbContext.MoneyInfo.Add(E);
             _dbContext.SaveChanges();
         }
 
-        public Model.MoneyInfo GetorCreate(Model.MoneyInfo E)
+        public Model.MoneyInfo GetorCreate()
         {
             Model.MoneyInfo moneyinfo = GetMoney();
             
             if (moneyinfo == null)
             {
-               
-                Create(E);
+
+                moneyinfo = new MoneyInfo();
+                Create(moneyinfo);
             }
             return moneyinfo;
             
@@ -65,6 +65,10 @@ namespace Financial_Tracker.Repository
         public void Delete(Model.MoneyInfo E)
         {
             _dbContext.MoneyInfo.Remove(E);
+            _dbContext.SaveChanges();
+        }
+        public void Save()
+        {
             _dbContext.SaveChanges();
         }
 
@@ -84,13 +88,14 @@ namespace Financial_Tracker.Repository
            _dbContext.SaveChanges();
             
         }
-        public void UpdateMoney(Model.MoneyInfo E)
+        public void UpdateMoney(Model.MoneyInfo E, int a, int b)
         {
             Model.MoneyInfo moneyinfo = GetMoney();
-            Delete(E);
-            Create(moneyinfo);
-    
-           
+            //E.Salary = a;
+            //E.Expenses = b;
+            _dbContext.SaveChanges();
+            //Delete(E);
+            //Create(moneyinfo);
         }
 
 
@@ -128,9 +133,9 @@ namespace Financial_Tracker.Repository
         }
 
         //public int DaysFromGoal()
-        //{  
+        //{
         //    var query = from Goals in _dbContext.Goals select Goals.GoalDate;
-        //   // return ;
+        //    return _dbContext.Goals.GoalDate;
 
         //}
 
@@ -144,7 +149,7 @@ namespace Financial_Tracker.Repository
        
 
         public IEnumerable<Model.Goals> AllGoals()
-        {
+        { 
             var qu = from Goals in _dbContext.Goals select Goals;
             return qu.ToList<Model.Goals>();
         }
