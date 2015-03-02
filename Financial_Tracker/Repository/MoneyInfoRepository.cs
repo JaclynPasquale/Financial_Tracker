@@ -37,9 +37,6 @@ namespace Financial_Tracker.Repository
 
         public Model.MoneyInfo GetMoney()
         {
-            MoneyInfo thing = new MoneyInfo(50, 10);
-            _dbContext.MoneyInfo.Add(thing);
-            _dbContext.SaveChanges();
            var query = from MoneyInfo in _dbContext.MoneyInfo
                            select MoneyInfo;
            return query.First<Model.MoneyInfo>();    
@@ -65,6 +62,12 @@ namespace Financial_Tracker.Repository
             
         }
 
+        public void Delete(Model.MoneyInfo E)
+        {
+            _dbContext.MoneyInfo.Remove(E);
+            _dbContext.SaveChanges();
+        }
+
         public int Difference()
         {
             MoneyInfo moneyinfo = GetMoney();
@@ -78,14 +81,16 @@ namespace Financial_Tracker.Repository
         {
             var a = this.All();
            _dbContext.MoneyInfo.RemoveRange(a);
-            _dbContext.SaveChanges();
+           _dbContext.SaveChanges();
             
         }
         public void UpdateMoney(Model.MoneyInfo E)
         {
             Model.MoneyInfo moneyinfo = GetMoney();
-            Clear();
-            Create(E);
+            Delete(E);
+            Create(moneyinfo);
+    
+           
         }
 
 

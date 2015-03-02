@@ -27,16 +27,15 @@ namespace Financial_Tracker
     public partial class MainWindow : Window
     {
         public static MoneyInfoRepository repo = new MoneyInfoRepository();
-        //public static MoneyInfoRepository goalsrepo = new MoneyInfoRepository();
-        
-
+       
         public MainWindow()
         {
             InitializeComponent();
-            salarydisplay.DataContext = repo.Context().MoneyInfo.Local;
-            expensesdisplay.DataContext = repo.Context().MoneyInfo.Local;
+            //salarydisplay.DataContext = repo.Context().MoneyInfo.Local;
+            //expensesdisplay.DataContext = repo.Context().MoneyInfo.Local;
             GoalsList.DataContext = repo.Context().Goals.Local;
-            Difference.Text = repo.Difference().ToString();
+            MoneyInfoList.DataContext = repo.Context().MoneyInfo.Local;
+            //Difference.Text = repo.Difference().ToString();
             
             //if (repo.GetCount() > 1)
             //{
@@ -53,6 +52,7 @@ namespace Financial_Tracker
             string moneyout = Expenses.Text;
             int expenses = Int32.Parse(moneyout);
             MoneyInfo moneyinfo = new MoneyInfo(salary, expenses);
+            //repo.Create(moneyinfo);
             if (repo.GetCount() == 0)
             {
                 repo.Create(moneyinfo);
@@ -62,8 +62,8 @@ namespace Financial_Tracker
                 repo.GetMoney();
                 repo.UpdateMoney(moneyinfo);
             }
-            salarydisplay.DataContext = repo.Context().MoneyInfo.Local;
-            expensesdisplay.DataContext = repo.Context().MoneyInfo.Local; 
+            
+            
         }
 
         private void AddGoal_Click(object sender, RoutedEventArgs e)
