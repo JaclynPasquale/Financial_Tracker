@@ -91,11 +91,8 @@ namespace Financial_Tracker.Repository
         public void UpdateMoney(Model.MoneyInfo E, int a, int b)
         {
             Model.MoneyInfo moneyinfo = GetMoney();
-            //E.Salary = a;
-            //E.Expenses = b;
-            _dbContext.SaveChanges();
-            //Delete(E);
-            //Create(moneyinfo);
+           _dbContext.SaveChanges();
+           
         }
 
 

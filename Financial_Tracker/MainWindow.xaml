@@ -4,19 +4,18 @@
         Title="MainWindow" Height="500" Width="800" BorderThickness="1">
     <Grid ShowGridLines="False" RenderTransformOrigin="0.322,0.521">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="15*"/>
-            <ColumnDefinition Width="15*"/>
-            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="75*"/>
             <ColumnDefinition Width="5*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="50*"/>
-            <RowDefinition Height="40*"/>
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
 
 
-        <StackPanel Grid.Row="0" Grid.Column="2" Background="Peru">
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Background="Peru">
             <TextBlock FontSize="20" Margin="20 10 0 0">Goals:</TextBlock>
         </StackPanel>
 
@@ -25,36 +24,40 @@
             <Button Background="IndianRed" Width="20" Height="20" Content="+" Margin="0,13,0,0" Grid.Column="3" Click="AddGoal_Click" ></Button>
         </StackPanel>
 
-        <Border Background="SeaGreen" Grid.ColumnSpan="2" Grid.Row="0"></Border>
-
-        <StackPanel HorizontalAlignment="Left"  Grid.Row="0" VerticalAlignment="Top" Grid.ColumnSpan="2">
-            <TextBlock FontSize="20" Margin="20 10 0 0" Grid.ColumnSpan="2"><Run Text="Money:"/></TextBlock>
-        </StackPanel>
-
-        <StackPanel Height="30" Width="400"  Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+        <Grid Height="30"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" >
             <ListBox Name="MoneyInfoList" ItemsSource="{Binding NotifyOnSourceUpdated=True}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel>
+                        <StackPanel Width="500" Height="500"  Orientation="Horizontal">
                             <Label>Monthly Salary:</Label>
-                            <TextBlock Name="salarydisplay" Width="50" Height="30" Text="{Binding Salary, NotifyOnSourceUpdated=True,  UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Name="salarydisplay"  Text="{Binding Salary, NotifyOnSourceUpdated=True,  UpdateSourceTrigger=PropertyChanged}"/>
                             <Label>Monthly Expenses:</Label>
-                            <TextBlock  Name="expensesdisplay" Width="50" Height="30"  Text="{Binding Expenses, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock  Name="expensesdisplay"  Text="{Binding Expenses, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label>Money Unallocated:</Label>
-                            <TextBlock Name="Difference" Height="30" Width="50" Text="{Binding}" />
+                            <TextBlock Name="Difference"  Text="{Binding}" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
+        </Grid>
+
+        <Border Background="SeaGreen"  Grid.Row="0"></Border>
+
+        <StackPanel HorizontalAlignment="Left"  Grid.Row="0" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <TextBlock FontSize="20" Margin="20 10 0 0" Grid.ColumnSpan="2">
+                <Run Text="Money:"/>
+            </TextBlock>
         </StackPanel>
 
+        
 
-        <StackPanel Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Margin="0 30 0 0">
+
+        <Grid Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" >
             <ListBox Name="GoalsList" ItemsSource="{Binding NotifyOnSourceUpdated=True}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
 
-                        <StackPanel Orientation="Horizontal">
+                        <StackPanel Orientation="Horizontal" >
                             
                             <Label Margin="0 5 0 5">Title:</Label>
                             <TextBlock Width="100" Height="20" Text="{Binding GoalTitle, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
@@ -63,30 +66,32 @@
                             <Label Margin="0 5 0 5">Cost:</Label>
                             <TextBlock Width="50" Height="20"  Text="{Binding GoalCost, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label Margin="0 5 0 5">Deadline:</Label>
-                            <TextBlock PreviewMouseDown="TextBlock_PreviewMouseDown" Width="100" Height="20"  Text="{Binding GoalDate, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock PreviewMouseDown="TextBlock_PreviewMouseDown" Width="120" Height="20"  Text="{Binding GoalDate, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Button Content="Delete"  Click="Delete_Goal"/>
+                            
                             
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-        </StackPanel>
+        </Grid>
 
        
         
         
 
-        <Border Background="LightGray" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2">
-        <StackPanel Grid.Column="0" Grid.Row="1">
-            <Label Margin="0 10 0 9" Grid.Column="0">Monthly Salary</Label>
-            <Label  Grid.Column="0">Monthly Expenses</Label>
-        </StackPanel>
+        <Border Background="LightGray" Grid.Row="1" Grid.RowSpan="2">
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical">
+            <Label Width="100">Monthly Salary</Label>
+                <TextBox Name="Salary" Width="100" Height="20" Grid.Column="1" Margin="0 0 0 10"></TextBox>
+                <Label Width="100" >Monthly Expenses</Label>
+                
+                <TextBox x:Name="Expenses" Width="100" Height="20" Margin="0 0 0 10"/>
+                <Button x:Name="Save" Width="100" Content="Save" Click="Save_Click" Background="DarkSeaGreen"></Button>
+            </StackPanel>
         </Border>
 
-        <StackPanel Grid.Column="1" Grid.Row="1">
-            <TextBox Name="Salary" Width="100" Height="20" Grid.Column="1" Margin="0 15 0 15"></TextBox>
-            <TextBox x:Name="Expenses" Width="100" Height="20" Margin="0 0 0 10"/>
-            <Button x:Name="Save" Width="100" Content="Save" Click="Save_Click" Background="DarkSeaGreen"></Button>
-        </StackPanel>
+        
     </Grid>
 
 </Window>

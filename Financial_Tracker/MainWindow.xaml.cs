@@ -50,6 +50,8 @@ namespace Financial_Tracker
             moneyinfo.Expenses = expenses;
             moneyinfo.Salary = salary;
             repo.Save();
+            repo.Difference();
+
             
         }
 
@@ -68,6 +70,11 @@ namespace Financial_Tracker
         }
         //GoalsLabels.Visibility = Visibility.Visible; 
 
+        private void Delete_Goal(object sender, RoutedEventArgs e)
+        {
+            
+
+        }
 
 
     }
