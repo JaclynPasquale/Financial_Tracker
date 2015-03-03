@@ -69,9 +69,16 @@ namespace Financial_Tracker
 
 
 
-        private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        private void EditDelete(object sender, MouseButtonEventArgs e)
         {
-            object Sender = sender as TextBlock;
+            Button buttonClicked = e.Source as Button;
+            string buttonContent = buttonClicked.Content.ToString();
+            TextBlock recipeTextBlock = sender as TextBlock;
+            Goals selectedGoals = recipeTextBlock.DataContext as Goals;
+            if (buttonContent == "Delete")
+            {
+                repo.Delete(selectedGoals);
+            }
             
         }
          

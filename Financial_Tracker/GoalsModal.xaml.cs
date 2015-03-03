@@ -38,8 +38,13 @@ namespace Financial_Tracker
             string goalTypes = ((ComboBoxItem)goalType.SelectedItem).Content.ToString();
             string cost = goalCost.Text;
             decimal GoalCost = decimal.Parse(cost);
+            DateTime? date = goalDate.SelectedDate;
+            
+             //var prettyDate = date.Value.ToShortDateString();
+            //DateTime GoalDate = DateTime.TryParse();
+            //goalDate.SelectedDate.
 
-            repo.Add(new Goals(goalTitle.Text, goalTypes, GoalCost, goalDate.SelectedDate));
+            repo.Add(new Goals(goalTitle.Text, goalTypes, GoalCost, date));
             AddGoalsDetail.IsEnabled = false;
             this.Close();
             
