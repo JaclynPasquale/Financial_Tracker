@@ -28,7 +28,7 @@ namespace Financial_Tracker
         {
             this.repo = repo;
             InitializeComponent();
-            GoalsList.DataContext = repo.Context().Goals.Local;
+            //GoalsList.DataContext = repo.Context().Goals.Local;
         }
      
 

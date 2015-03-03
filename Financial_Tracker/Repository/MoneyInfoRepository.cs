@@ -153,7 +153,10 @@ namespace Financial_Tracker.Repository
 
         public Model.Goals GetGoalsById(int id)
         {
-            throw new NotImplementedException();
+            var query = from Goals in _dbContext.Goals 
+                        where Goals.GoalsId == id 
+                        select Goals;
+            return query.First<Goals>();
         }
 
         public IQueryable<Model.Goals> SearchFor(System.Linq.Expressions.Expression<Func<Model.Goals, bool>> predicate)

@@ -27,17 +27,17 @@ namespace Financial_Tracker
     public partial class MainWindow : Window
     {
         public static MoneyInfoRepository repo = new MoneyInfoRepository();
+
+        public static ListBox goalslist;
        
         public MainWindow()
         {
             InitializeComponent();
-            //salarydisplay.DataContext = repo.Context().MoneyInfo.Local;
-            //expensesdisplay.DataContext = repo.Context().MoneyInfo.Local;
+           
             GoalsList.DataContext = repo.Context().Goals.Local;
             MoneyInfoList.DataContext = repo.Context().MoneyInfo.Local;
-            
-            
-            
+            goalslist = GoalsList;
+             
         }
         
 
@@ -78,6 +78,11 @@ namespace Financial_Tracker
             if (buttonContent == "Delete")
             {
                 repo.Delete(selectedGoals);
+            }else if(buttonContent == "Edit")
+            {
+                EditGoals edit = new EditGoals(selectedGoals, repo);
+                edit.Show();
+                
             }
             
         }
