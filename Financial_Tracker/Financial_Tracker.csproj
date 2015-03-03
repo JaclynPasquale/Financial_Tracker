@@ -63,15 +63,6 @@
     <Compile Include="GoalsModal.xaml.cs">
       <DependentUpon>GoalsModal.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201502190309290_InitialCreate.cs" />
-    <Compile Include="Migrations\201502190309290_InitialCreate.Designer.cs">
-      <DependentUpon>201502190309290_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201502242125517_add-migration fuckall.cs" />
-    <Compile Include="Migrations\201502242125517_add-migration fuckall.Designer.cs">
-      <DependentUpon>201502242125517_add-migration fuckall.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Goals.cs" />
     <Compile Include="Repository\IMoneyInfoRepository.cs" />
     <Compile Include="Repository\MoneyInfoRepository.cs" />
@@ -107,12 +98,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201502190309290_InitialCreate.resx">
-      <DependentUpon>201502190309290_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201502242125517_add-migration fuckall.resx">
-      <DependentUpon>201502242125517_add-migration fuckall.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

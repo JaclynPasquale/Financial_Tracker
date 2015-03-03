@@ -72,12 +72,12 @@ namespace Financial_Tracker.Repository
             _dbContext.SaveChanges();
         }
 
-        public int Difference()
-        {
-            MoneyInfo moneyinfo = GetMoney();
+        //public int Difference()
+        //{
+        //    MoneyInfo moneyinfo = GetMoney();
 
-           return moneyinfo.Salary - moneyinfo.Expenses;
-        }
+        //   return moneyinfo.Salary - moneyinfo.Expenses;
+        //}
 
         
 

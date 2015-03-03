@@ -10,7 +10,8 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="80*"/>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
 
@@ -25,22 +26,24 @@
         </StackPanel>
 
         <Grid Height="30"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" >
-            <ListBox Name="MoneyInfoList" ItemsSource="{Binding NotifyOnSourceUpdated=True}">
+            <ListBox Name="MoneyInfoList" ItemsSource="{Binding}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Width="500" Height="500"  Orientation="Horizontal">
                             <Label>Monthly Salary:</Label>
-                            <TextBlock Name="salarydisplay"  Text="{Binding Salary, NotifyOnSourceUpdated=True,  UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Name="salarydisplay"  Text="{Binding Salary}"/>
                             <Label>Monthly Expenses:</Label>
-                            <TextBlock  Name="expensesdisplay"  Text="{Binding Expenses, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock  Name="expensesdisplay"  Text="{Binding Expenses}"/>
                             <Label>Money Unallocated:</Label>
-                            <TextBlock Name="Difference"  Text="{Binding}" />
+                            <TextBlock Name="Difference"  Text="{Binding Difference}" />
+                           
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
-
+        
+        
         <Border Background="SeaGreen"  Grid.Row="0"></Border>
 
         <StackPanel HorizontalAlignment="Left"  Grid.Row="0" VerticalAlignment="Top" Grid.ColumnSpan="2">
@@ -67,8 +70,6 @@
                             <TextBlock Width="50" Height="20"  Text="{Binding GoalCost, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label Margin="0 5 0 5">Deadline:</Label>
                             <TextBlock PreviewMouseDown="TextBlock_PreviewMouseDown" Width="120" Height="20"  Text="{Binding GoalDate, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
-                            <Button Content="Delete"  Click="Delete_Goal"/>
-                            
                             
                         </StackPanel>
                     </DataTemplate>
@@ -76,6 +77,7 @@
             </ListBox>
         </Grid>
 
+        
        
         
         
@@ -90,8 +92,6 @@
                 <Button x:Name="Save" Width="100" Content="Save" Click="Save_Click" Background="DarkSeaGreen"></Button>
             </StackPanel>
         </Border>
-
-        
-    </Grid>
+</Grid>
 
 </Window>

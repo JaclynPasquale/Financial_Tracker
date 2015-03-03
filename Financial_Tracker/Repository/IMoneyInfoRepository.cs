@@ -29,7 +29,7 @@ namespace Financial_Tracker.Repository
 
         //int GetCount(); //
         //void Add(Event E); //
-        //void Delete(Event E); //
+        void Delete(Goals E); //
         //void Clear(); //
         //IEnumerable<Event> PastEvents(); //
         //int CalculateMonth(Event E); //

@@ -6,12 +6,18 @@ using Financial_Tracker;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using Financial_Tracker.Model;
+using System.Data.Entity.Infrastructure;
 
 namespace Financial_Tracker
 {
      public class MoneyInfoContext : DbContext
     {
-        public MoneyInfoContext(string connection = "MoneyInfoContext") : base(connection)
+         //public MoneyInfoContext Create()
+         //{
+         //    return new MoneyInfoContext("MoneyInfoContext");
+         //}
+
+        public MoneyInfoContext() : base("MoneyInfoContext")
         {
 
         }

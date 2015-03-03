@@ -16,11 +16,13 @@ namespace Financial_Tracker.Model
         public int MoneyInfoId { get; set; }
         public int Salary{get; set;}
         public int Expenses{get; set;}
+        public int Difference { get; set; }
 
         public MoneyInfo(int Salary, int Expenses)
         {
             this.Salary = Salary;
             this.Expenses = Expenses;
+            this.Difference = Salary - Expenses;
         }
         
     }

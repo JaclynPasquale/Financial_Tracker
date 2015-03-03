@@ -36,6 +36,8 @@ namespace Financial_Tracker
             GoalsList.DataContext = repo.Context().Goals.Local;
             MoneyInfoList.DataContext = repo.Context().MoneyInfo.Local;
             
+            
+            
         }
         
 
@@ -46,13 +48,16 @@ namespace Financial_Tracker
 
             string moneyout = Expenses.Text;
             int expenses = Int32.Parse(moneyout);
+
             MoneyInfo moneyinfo = repo.GetorCreate();
             moneyinfo.Expenses = expenses;
             moneyinfo.Salary = salary;
+            moneyinfo.Difference = salary - expenses;
             repo.Save();
-            repo.Difference();
-
+            MoneyInfoList.Items.Refresh();
             
+           
+  
         }
 
         private void AddGoal_Click(object sender, RoutedEventArgs e)
@@ -67,12 +72,14 @@ namespace Financial_Tracker
         private void TextBlock_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             object Sender = sender as TextBlock;
-        }
-        //GoalsLabels.Visibility = Visibility.Visible; 
-
-        private void Delete_Goal(object sender, RoutedEventArgs e)
-        {
             
+        }
+         
+
+        private void Delete_Goal_Click(object sender, RoutedEventArgs e)
+        {
+            Goals goals = new Goals();
+            repo.Delete(goals);
 
         }
 
