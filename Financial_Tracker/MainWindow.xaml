@@ -71,6 +71,7 @@
                             <TextBlock PreviewMouseDown="EditDelete" Width="200" Height="20"  Text="{Binding GoalDate, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}">
                                 <Button Content="Delete"></Button>
                                 <Button Content="Edit"></Button>
+                                <Button Content="View"></Button>
                             </TextBlock>
                             
                         </StackPanel>

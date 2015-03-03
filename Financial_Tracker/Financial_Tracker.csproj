@@ -69,6 +69,9 @@
     <Compile Include="Model\Goals.cs" />
     <Compile Include="Repository\IMoneyInfoRepository.cs" />
     <Compile Include="Repository\MoneyInfoRepository.cs" />
+    <Compile Include="ShowGoals.xaml.cs">
+      <DependentUpon>ShowGoals.xaml</DependentUpon>
+    </Compile>
     <Page Include="EditGoals.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -89,6 +92,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="MoneyInfoContext.cs" />
+    <Page Include="ShowGoals.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\MoneyInfo.cs" />

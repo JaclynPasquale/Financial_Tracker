@@ -83,6 +83,10 @@ namespace Financial_Tracker
                 EditGoals edit = new EditGoals(selectedGoals, repo);
                 edit.Show();
                 
+            }else if(buttonContent == "View")
+            {
+                ShowGoals show = new ShowGoals(selectedGoals, repo);
+                show.Show();
             }
             
         }

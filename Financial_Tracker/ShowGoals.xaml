@@ -1,21 +1,21 @@
 ﻿<Window x:Class="Financial_Tracker.ShowGoals"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ShowGoals" Height="300" Width="300">
+        Title="ShowGoals" Height="400" Width="300">
     <Grid>
         <StackPanel Orientation="Vertical">
             <Label Width="200">Goal Title</Label>
             <TextBlock Name="goalTitle" Width="200" Margin="0 0 0 10"></TextBlock>
             <Label Width="200">Type of Goal</Label>
-            <TextBlock></TextBlock>
+            <TextBlock Name="goalType" Width="200" Margin="0 0 0 10"></TextBlock>
             <Label Width="200">Cost of Goal</Label>
             <TextBlock Name="goalCost" Width="200" Margin="0 0 0 10"></TextBlock>
             <Label Width="200">Deadline for Goal</Label>
             <TextBlock Name="goalDate" Width="200" Margin="0 0 0 10"></TextBlock>
-            <Label>Time Till Deadline</Label>
-            <TextBlock></TextBlock>
-            <Label>Daily Saving Target</Label>
-            <TextBlock></TextBlock>
+            <Label Width="200">Time Till Deadline</Label>
+            <TextBlock Name="timeTill" Width="200" Margin="0 0 0 10"></TextBlock>
+            <Label Width="200">Daily Saving Target</Label>
+            <TextBlock Name="saveTarget" Width="200" Margin="0 0 0 10"></TextBlock>
 
            
 
