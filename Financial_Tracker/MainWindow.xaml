@@ -1,7 +1,7 @@
 ﻿<Window x:Class="Financial_Tracker.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="500" Width="1200" BorderThickness="1">
+        Title="MainWindow" Height="500" Width="1000" BorderThickness="1">
     <Grid ShowGridLines="False" RenderTransformOrigin="0.322,0.521">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20*"/>
@@ -25,17 +25,17 @@
             <Button Background="IndianRed" Width="20" Height="20" Content="+" Margin="0,13,0,0" Grid.Column="3" Click="AddGoal_Click" ></Button>
         </StackPanel>
 
-        <Grid Height="30"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" >
+        <Grid Height="35"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" >
             <ListBox Name="MoneyInfoList" ItemsSource="{Binding}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Width="500" Height="500"  Orientation="Horizontal">
-                            <Label>Monthly Salary:</Label>
-                            <TextBlock Name="salarydisplay"  Text="{Binding Salary}"/>
-                            <Label>Monthly Expenses:</Label>
-                            <TextBlock  Name="expensesdisplay"  Text="{Binding Expenses}"/>
-                            <Label>Money Unallocated:</Label>
-                            <TextBlock Name="Difference"  Text="{Binding Difference}" />
+                        <StackPanel   Orientation="Horizontal">
+                            <Label Margin="5 0 5 0">Monthly Salary:</Label>
+                            <TextBlock Margin="5 0 15 0" Name="salarydisplay"  Text="{Binding Salary}"/>
+                            <Label Margin="5 0 5 0" >Monthly Expenses:</Label>
+                            <TextBlock Margin="5 0 15 0"  Name="expensesdisplay"  Text="{Binding Expenses}"/>
+                            <Label Margin="5 0 5 0" >Money Unallocated:</Label>
+                            <TextBlock Margin="5 0 15 0" Name="Difference"  Text="{Binding Difference}" />
                            
                         </StackPanel>
                     </DataTemplate>
@@ -62,16 +62,16 @@
 
                         <StackPanel Orientation="Horizontal" >
                             <Label Margin="0 5 0 5">Title:</Label>
-                            <TextBlock Width="100" Height="20" Text="{Binding GoalTitle, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Width="150" Height="20" Text="{Binding GoalTitle, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label Margin="0 5 0 5">Type:</Label>
-                            <TextBlock Width="100" Height="20"  Text="{Binding GoalType, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Width="120" Height="20"  Text="{Binding GoalType, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label Margin="0 5 0 5">Cost:</Label>
-                            <TextBlock Width="100" Height="20"  Text="{Binding GoalCost, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock Width="70" Height="20"  Text="{Binding GoalCost, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}"/>
                             <Label Margin="0 5 0 5">Deadline:</Label>
-                            <TextBlock PreviewMouseDown="EditDelete" Width="200" Height="20"  Text="{Binding GoalDate, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}">
-                                <Button Content="Delete"></Button>
-                                <Button Content="Edit"></Button>
-                                <Button Content="View"></Button>
+                            <TextBlock Padding="0 0 15 0" PreviewMouseDown="EditDelete" Width="250" Height="20"  Text="{Binding GoalDate, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}">
+                                <Button Content="Delete" Margin="5 0 5 0"></Button>
+                                <Button Content="Edit" Margin="5 0 5 0"></Button>
+                                <Button Content="View" Margin="5 0 5 0"></Button>
                             </TextBlock>
                             
                         </StackPanel>
